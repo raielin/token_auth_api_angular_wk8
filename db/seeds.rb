@@ -14,6 +14,8 @@ titles = Title.create([
 	{ name: 'director' }
 ])
 
+# 'curl' is a commandline HTTP request. We make an arbitrary post as if we had created a form.
+
 # curl -d "user[first_name]=Dan&user[last_name]=Johnson&user[password]=test&user[password_confirmation]=test" -X POST localhost:3000/users
 
 # token used in requests - d4b6db6199e646ad984d96db25ddef61
@@ -21,6 +23,9 @@ titles = Title.create([
 # curl -d "user[first_name]=David&user[last_name]=Thomas&user[password]=test&user[password_confirmation]=test" -X POST localhost:3000/users
 
 # token used in requests - 0ddaab06d641407f8724673c7fdcddfd
+
+# password_digest is the encryted password. We don't want to store the actual password,
+# need to have a few layers of encryption
 
 users = User.create([
 	{ first_name: 'Dan', last_name: 'Johnson', role: 1, title: Title.find_by_name('manager'), password_digest: '$2a$10$5M0fkXWcq1Z/x8F.vjfseOc7AlmlmqejHiDCU/uHyh9YxLCDoB4nS', token: 'd4b6db6199e646ad984d96db25ddef61', email: 'dan@test.com' },

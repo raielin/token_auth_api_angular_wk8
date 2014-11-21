@@ -5,6 +5,8 @@ gem 'rails-api'
 gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'rack-cors', require: 'rack/cors'
+# Required for encryption algorithm that comes from 'has secure password'
+# which hooks us into this gem.
 gem 'bcrypt'
 
 group :development do

@@ -1,11 +1,13 @@
 class SkillsController < ApplicationController
+  # Before any of these actions, we check to see if the user has a token.
+  # If it doesn't return true, can't run these actions.
   before_filter :authenticate
 
   # GET /skills
   # GET /skills.json
   def index
     @skills = Skill.all
-    
+
     render json: @skills
   end
 
@@ -40,7 +42,7 @@ class SkillsController < ApplicationController
       user = User.find(params[:user_id])
 
       user.skills << @skill
-      
+
       head :no_content
     else
       if @skill.update(skill_params)
